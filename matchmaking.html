@@ -1,0 +1,241 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Matchmaking Service &middot; Influ&uuml;s</title>
+<meta name="description" content="Influus connects brands and creators: shortlist, contracts, content and reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}</style>
+<style>
+.ifs{--ink:#1c1a24;--mut:#8b8698;--line:#ececf1;--soft:#faf9fc;--acc:#1b1922;
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--ink);line-height:1.62;font-size:16px;background:#fff}
+.ifs *{box-sizing:border-box}
+.ifs img{max-width:100%;height:auto}
+.ifs a{color:inherit}
+.ifs-w{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ---- marque ---- */
+.ifs-brand{display:flex;align-items:center;gap:14px;padding:30px 0 0}
+.ifs-sphere{width:44px;height:44px;flex:0 0 44px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#f3f1f5 0%,#c9c6d0 34%,#6f6b7a 72%,#2b2833 100%);
+  box-shadow:0 6px 16px rgba(28,26,36,.22),inset -3px -4px 8px rgba(0,0,0,.28),inset 3px 4px 8px rgba(255,255,255,.5)}
+.ifs-word{font-weight:700;font-size:29px;letter-spacing:-.5px;line-height:1}
+.ifs-word i{font-style:normal;color:var(--mut)}
+.ifs-tag{align-self:flex-end;margin-bottom:5px;font-size:10.5px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--acc);
+  padding:4px 9px;border-radius:5px}
+
+/* ---- rythme de section ---- */
+.ifs-s{padding:66px 0}
+.ifs-s.alt{background:var(--soft);border-block:1px solid var(--line)}
+.ifs-eb{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:11.5px;
+  font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.ifs-eb::before{content:"";flex:0 0 22px;height:2px;border-radius:2px;background:var(--acc)}
+.ifs h1{font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-1.4px;
+  font-weight:700;margin:0 0 18px}
+.ifs h2{font-size:clamp(26px,3.4vw,38px);line-height:1.16;letter-spacing:-.9px;
+  font-weight:700;margin:0 0 12px}
+.ifs h3{font-size:19px;line-height:1.3;letter-spacing:-.3px;font-weight:600;margin:0 0 8px}
+.ifs p{margin:0 0 14px}
+.ifs-lede{font-size:19px;color:#4a4753;max-width:62ch}
+.ifs-sub{color:var(--mut);max-width:66ch;margin:0 0 30px}
+
+/* ---- bandeau ---- */
+.ifs-hero{padding:52px 0 60px}
+.ifs-hero-g{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+.ifs-panel{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:18px;
+  padding:26px 26px 20px;box-shadow:0 18px 44px rgba(28,26,36,.08);background:#fff}
+.ifs-panel p.h{font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--mut);margin:0 0 14px}
+.ifs-panel ul{list-style:none;margin:0;padding:0}
+.ifs-panel li{display:flex;align-items:baseline;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.ifs-panel li:first-child{border-top:0}
+.ifs-panel li b{font-size:25px;font-weight:700;letter-spacing:-.6px;min-width:82px}
+.ifs-panel li span{font-size:13.5px;color:var(--mut);line-height:1.4}
+.ifs-panel .n{margin:14px 0 0;font-size:11.5px;color:var(--mut);line-height:1.45}
+
+/* ---- boutons ----
+   Toutes les regles de couleur portent DEUX classes (.ifs .ifs-btn), jamais
+   une seule. Sinon « .ifs a{color:inherit} » plus haut, qui vaut une classe
+   + un type, l'emporte sur « .ifs-btn{color:#fff} » qui ne vaut qu'une
+   classe : le bouton reste noir et son texte devient noir aussi. Constate a
+   l'ecran, pas dans le code. */
+.ifs-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.ifs .ifs-btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;
+  border:1px solid var(--acc);border-radius:999px;padding:14px 28px;font-size:15px;
+  font-weight:600;transition:transform .15s}
+.ifs .ifs-btn:hover{transform:translateY(-1px);color:#fff}
+.ifs .ifs-btn.gh{background:transparent;color:var(--ink);border-color:var(--line)}
+.ifs .ifs-btn.gh:hover{border-color:var(--acc);color:var(--ink)}
+
+/* ---- grilles ---- */
+.ifs-g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ifs-g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.ifs-card{border:1px solid var(--line);border-radius:16px;padding:26px 24px;background:#fff;
+  display:flex;flex-direction:column}
+.ifs-card .k{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mut);margin:0 0 10px}
+.ifs-card p{font-size:14.8px;color:#4a4753}
+.ifs-card ul{margin:4px 0 0;padding-left:18px;font-size:14.5px;color:#4a4753}
+.ifs-card li{margin:5px 0}
+.ifs-card .foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--mut)}
+.ifs-card .foot b{color:var(--ink);font-size:15px}
+
+/* ---- etapes ---- */
+.ifs-steps{counter-reset:st;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;
+  list-style:none;margin:0;padding:0}
+.ifs-steps li{counter-increment:st;border-top:2px solid var(--acc);padding-top:16px}
+.ifs-steps li::before{content:counter(st,decimal-leading-zero);display:block;
+  font-size:12.5px;font-weight:700;letter-spacing:.1em;color:var(--mut);margin-bottom:7px}
+.ifs-steps h3{font-size:16.5px;margin-bottom:6px}
+.ifs-steps p{font-size:14px;color:#4a4753;margin:0}
+
+/* ---- tableau ---- */
+.ifs-tw{border:1px solid var(--line);border-radius:14px;overflow-x:auto;background:#fff}
+.ifs-t{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+.ifs-t th{text-align:left;background:var(--soft);color:var(--mut);font-weight:600;font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;padding:14px 16px;border-bottom:1px solid var(--line)}
+.ifs-t td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.ifs-t tr:last-child td{border-bottom:0}
+.ifs-t td b{font-weight:600}
+.ifs-t .mut{color:var(--mut)}
+
+/* ---- pastilles de publications ---- */
+.ifs-pubs{display:flex;flex-wrap:wrap;gap:9px}
+.ifs-pub{display:inline-block;border:1px solid var(--line);border-radius:999px;
+  padding:8px 15px;font-size:13.5px;font-weight:500;background:#fff;white-space:nowrap}
+.ifs-pub b{font-weight:700}
+.ifs-pub .da{color:var(--mut);font-weight:600;font-size:12px;margin-left:6px}
+
+/* ---- deux colonnes inclus / non inclus ---- */
+.ifs-inc li{list-style:none;padding:11px 0 11px 30px;border-top:1px solid var(--line);
+  position:relative;font-size:14.8px}
+.ifs-inc ul{margin:0;padding:0}
+.ifs-inc li:first-child{border-top:0}
+.ifs-inc li::before{position:absolute;left:0;top:11px;font-weight:700}
+.ifs-inc.yes li::before{content:"+";color:#1f9d55}
+.ifs-inc.no li::before{content:"\2013";color:var(--mut)}
+
+/* ---- faq ---- */
+.ifs-faq details{border-top:1px solid var(--line);padding:0}
+.ifs-faq details:last-child{border-bottom:1px solid var(--line)}
+.ifs-faq summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;position:relative;
+  font-weight:600;font-size:16.5px}
+.ifs-faq summary::-webkit-details-marker{display:none}
+.ifs-faq summary::after{content:"+";position:absolute;right:6px;top:15px;font-size:22px;
+  font-weight:400;color:var(--mut)}
+.ifs-faq details[open] summary::after{content:"\2013"}
+.ifs-faq .a{padding:0 40px 20px 0;font-size:15px;color:#4a4753}
+.ifs-faq .a p:last-child{margin-bottom:0}
+
+/* ---- bande finale ---- */
+.ifs-end{background:var(--acc);color:#fff;border-radius:22px;padding:52px 44px;
+  margin:0 0 66px;text-align:center}
+.ifs-end h2{color:#fff;margin-bottom:10px}
+.ifs-end p{color:#c9c6d0;max-width:56ch;margin:0 auto 22px}
+.ifs .ifs-end .ifs-btn{background:#fff;color:var(--acc);border-color:#fff}
+.ifs .ifs-end .ifs-btn:hover{color:var(--acc)}
+.ifs .ifs-end .ifs-btn.gh{background:transparent;color:#fff;border-color:rgba(255,255,255,.42)}
+.ifs-end .ifs-cta-row{justify-content:center}
+.ifs-note{font-size:12.5px;color:var(--mut);padding:0 0 40px;line-height:1.55}
+
+/* ---- responsive ---- */
+@media(max-width:980px){
+  .ifs-hero-g{grid-template-columns:1fr;gap:34px}
+  .ifs-g3,.ifs-g2{grid-template-columns:1fr}
+  .ifs-steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .ifs-s{padding:48px 0}
+  .ifs-steps{grid-template-columns:1fr}
+  .ifs-end{padding:38px 24px;border-radius:16px}
+  .ifs-tag{display:none}
+  .ifs-lede{font-size:17px}
+}
+</style>
+<div class="ifs"><div class="ifs-w"><div class="ifs-brand"><span class="ifs-sphere"></span><span class="ifs-word">Influ&uuml;s<i>.</i></span><span class="ifs-tag">Matchmaking</span></div></div>
+<section class="ifs-hero"><div class="ifs-w"><div class="ifs-hero-g">
+  <div>
+    <p class="ifs-eb">Matchmaking service</p>
+    <h1>Where brands meet the right creators &mdash; not just the big ones.</h1>
+    <p class="ifs-lede">Influ&uuml;s connects brands and influencers and runs
+      what happens next: sourcing, negotiation, contracts, logistics, content
+      and reporting. You approve the shortlist; we handle the rest.</p>
+    <div class="ifs-cta-row">
+      <a class="ifs-btn" href="https://influus.com/contact/">Get a shortlist</a>
+      <a class="ifs-btn gh" href="https://influus.com/press-service-2/">See the press service</a>
+    </div>
+  </div>
+  <aside class="ifs-panel">
+    <p class="h">How we work</p>
+    <ul>
+      <li><b>5</b><span>audience tiers, from 10K to 1M+</span></li>
+      <li><b>3</b><span>programs: gifting, collaboration, campaign</span></li>
+      <li><b>1</b><span>shortlist to approve before anything is signed</span></li>
+      <li><b>0</b><span>content published without your sign-off</span></li>
+    </ul>
+    <p class="n">Creator fees are quoted per campaign &mdash; tier,
+      deliverables, exclusivity and usage rights all move the number.</p>
+  </aside>
+</div></div></section>
+
+<section class="ifs-s alt"><div class="ifs-w">
+  <p class="ifs-eb">The programs</p>
+  <h2>Three ways to work with creators.</h2>
+  <p class="ifs-sub">They stack. Most brands start with gifting to learn what
+    lands, then move budget into what worked.</p>
+  <div class="ifs-g3"><article class="ifs-card"><p class="k">Product logistics &middot; Unboxing &middot; Tracking</p><h3>Gifting program</h3><p>You send product, creators produce genuine first-impression content, and we track what it actually did.</p><ul><li>Creator selection and address handling</li><li>Shipping tracked to delivery</li><li>Unboxings, stories and Reels</li><li>Reach and engagement reported per creator</li></ul><div class="foot">Best for: Physical products with a visible &laquo;&nbsp;first open&nbsp;&raquo;.</div></article><article class="ifs-card"><p class="k">Co-creation &middot; Ambassadors &middot; Events</p><h3>Influencer collaborations</h3><p>Longer partnerships: content built with the creator rather than handed to them, ambassador terms, and events.</p><ul><li>Creative concept agreed with the creator</li><li>Multi-post or multi-month ambassador terms</li><li>Events and meet-ups where it fits</li><li>Content you are licensed to reuse</li></ul><div class="foot">Best for: Brands that need trust, not a one-off spike.</div></article><article class="ifs-card"><p class="k">Strategy &middot; Paid amplification &middot; Storytelling</p><h3>Cross-channel campaigns</h3><p>Creator content placed inside a real media plan and amplified with paid, so the best piece is not left to the algorithm.</p><ul><li>One narrative across creators and channels</li><li>Whitelisting and paid amplification</li><li>Sequenced launch calendar</li><li>Consolidated performance reporting</li></ul><div class="foot">Best for: Launches where reach has to be predictable.</div></article></div>
+</div></section>
+
+<section class="ifs-s"><div class="ifs-w">
+  <p class="ifs-eb">The process</p>
+  <h2>From brief to reporting.</h2>
+  <p class="ifs-sub">Nothing is contracted before you have seen names.</p>
+  <ol class="ifs-steps"><li><h3>The brief</h3><p>Product, audience, market, budget and what a win looks like. One call is usually enough.</p></li><li><h3>The shortlist</h3><p>We come back with named creators, their audience, and why each one fits &mdash; not a follower count on its own.</p></li><li><h3>Terms</h3><p>Deliverables, dates, exclusivity and usage rights agreed and contracted before anyone films anything.</p></li><li><h3>Production</h3><p>Creators produce, you review against the brief, revisions happen before publication.</p></li><li><h3>Reporting</h3><p>Reach, engagement and link performance per creator, plus the assets you are licensed to reuse.</p></li></ol>
+</div></section>
+
+<section class="ifs-s alt"><div class="ifs-w">
+  <p class="ifs-eb">Audience tiers</p>
+  <h2>Size sets the tier. Fit picks the creator.</h2>
+  <p class="ifs-sub">The tier tells you what a creator is useful for and what
+    a deliverable normally looks like at that size.</p>
+  <div class="ifs-tw"><table class="ifs-t">
+    <thead><tr><th>Tier</th><th>Followers</th><th>What it is good for</th>
+      <th>Typical deliverable</th></tr></thead>
+    <tbody><tr><td><b>Nano &amp; micro</b></td><td>10K &ndash; 50K</td><td>Niche communities, high engagement, low unit cost.</td><td class="mut">Stories, a Reel or a review post. Volume plays.</td></tr><tr><td><b>Mid tier</b></td><td>50K &ndash; 250K</td><td>The working core of most campaigns.</td><td class="mut">Reel or TikTok plus stories, usually with usage rights.</td></tr><tr><td><b>Macro</b></td><td>250K &ndash; 500K</td><td>Reach with a face people recognise in the niche.</td><td class="mut">Produced content, briefed, with revision rounds.</td></tr><tr><td><b>Large</b></td><td>500K &ndash; 1M</td><td>Launch moments and category credibility.</td><td class="mut">Multi-post packages, exclusivity windows.</td></tr><tr><td><b>Mega</b></td><td>Above 1M</td><td>Mass awareness. Priced and contracted individually.</td><td class="mut">Bespoke &mdash; scoped case by case.</td></tr></tbody>
+  </table></div>
+</div></section>
+
+<section class="ifs-s"><div class="ifs-w">
+  <p class="ifs-eb">Who does what</p>
+  <h2>No campaign fails on strategy. They fail on logistics.</h2>
+  <p class="ifs-sub">So it is worth being explicit about who owns which part.</p>
+  
+<div class="ifs-g3">
+  <article class="ifs-card"><p class="k">You bring</p><h3>The brand side</h3>
+    <ul><li>The product, and enough of it</li><li>The audience you actually
+    want</li><li>Non-negotiables: claims, wording, competitors</li>
+    <li>A budget range, even a rough one</li>
+    <li>One person who can say yes</li></ul></article>
+  <article class="ifs-card"><p class="k">We bring</p><h3>Influ&uuml;s</h3>
+    <ul><li>Creator sourcing and vetting</li><li>Negotiation and contracting</li>
+    <li>Briefs the creator can actually shoot</li><li>Logistics and schedule</li>
+    <li>Reporting, and the argument when something underperforms</li></ul></article>
+  <article class="ifs-card"><p class="k">They bring</p><h3>The creator</h3>
+    <ul><li>An audience that trusts them</li><li>Content in their own voice</li>
+    <li>Agreed deliverables on agreed dates</li><li>Disclosure done properly</li>
+    <li>Usage rights, where they are part of the deal</li></ul></article>
+</div>
+</div></section>
+
+<section class="ifs-s alt"><div class="ifs-w">
+  <p class="ifs-eb">Questions</p>
+  <h2>Before you brief us.</h2>
+  <div style="margin-top:22px"><div class="ifs-faq"><details open><summary>How do you choose the creators?</summary><div class="a"><p>By fit before size: what the audience is, where it is, how it behaves, and whether the creator has worked with anything adjacent to your category. Follower count sets the tier; it does not pick the creator.</p></div></details><details><summary>Is there a minimum audience size?</summary><div class="a"><p>We work from 10K followers upward. Below that the reporting is too noisy to price honestly.</p></div></details><details><summary>Who owns the content?</summary><div class="a"><p>The creator does, unless usage rights are bought &mdash; so they are negotiated up front and written into the agreement, not asked for afterwards.</p></div></details><details><summary>What does it cost?</summary><div class="a"><p>Creator fees are quoted per campaign, because they depend on tier, deliverables, exclusivity and usage rights. You get the shortlist with a fee against each name before you commit.</p></div></details><details><summary>Can you combine this with press?</summary><div class="a"><p>Yes, and it is usually the right move: the press placement gives you the credible source, the creators give you the reach that sends people to it.</p></div></details></div></div>
+</div></section>
+
+<div class="ifs-w"><div class="ifs-end"><h2>Tell us the product. We come back with names.</h2><p>A short brief is enough to get a shortlist: who they are, what their audience is, what they would deliver and what it costs.</p><div class="ifs-cta-row"><a class="ifs-btn" href="https://influus.com/contact/">Start a brief</a><a class="ifs-btn gh" href="https://influus.com/press-service-2/">See the press service</a></div></div></div>
+</div>

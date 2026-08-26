@@ -1,0 +1,232 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Press Service &middot; Influ&uuml;s</title>
+<meta name="description" content="Press releases, guest posts and brand mentions on 126 publications, ordered from one catalogue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}</style>
+<style>
+.ifs{--ink:#1c1a24;--mut:#8b8698;--line:#ececf1;--soft:#faf9fc;--acc:#1b1922;
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--ink);line-height:1.62;font-size:16px;background:#fff}
+.ifs *{box-sizing:border-box}
+.ifs img{max-width:100%;height:auto}
+.ifs a{color:inherit}
+.ifs-w{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ---- marque ---- */
+.ifs-brand{display:flex;align-items:center;gap:14px;padding:30px 0 0}
+.ifs-sphere{width:44px;height:44px;flex:0 0 44px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#f3f1f5 0%,#c9c6d0 34%,#6f6b7a 72%,#2b2833 100%);
+  box-shadow:0 6px 16px rgba(28,26,36,.22),inset -3px -4px 8px rgba(0,0,0,.28),inset 3px 4px 8px rgba(255,255,255,.5)}
+.ifs-word{font-weight:700;font-size:29px;letter-spacing:-.5px;line-height:1}
+.ifs-word i{font-style:normal;color:var(--mut)}
+.ifs-tag{align-self:flex-end;margin-bottom:5px;font-size:10.5px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--acc);
+  padding:4px 9px;border-radius:5px}
+
+/* ---- rythme de section ---- */
+.ifs-s{padding:66px 0}
+.ifs-s.alt{background:var(--soft);border-block:1px solid var(--line)}
+.ifs-eb{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:11.5px;
+  font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.ifs-eb::before{content:"";flex:0 0 22px;height:2px;border-radius:2px;background:var(--acc)}
+.ifs h1{font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-1.4px;
+  font-weight:700;margin:0 0 18px}
+.ifs h2{font-size:clamp(26px,3.4vw,38px);line-height:1.16;letter-spacing:-.9px;
+  font-weight:700;margin:0 0 12px}
+.ifs h3{font-size:19px;line-height:1.3;letter-spacing:-.3px;font-weight:600;margin:0 0 8px}
+.ifs p{margin:0 0 14px}
+.ifs-lede{font-size:19px;color:#4a4753;max-width:62ch}
+.ifs-sub{color:var(--mut);max-width:66ch;margin:0 0 30px}
+
+/* ---- bandeau ---- */
+.ifs-hero{padding:52px 0 60px}
+.ifs-hero-g{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+.ifs-panel{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:18px;
+  padding:26px 26px 20px;box-shadow:0 18px 44px rgba(28,26,36,.08);background:#fff}
+.ifs-panel p.h{font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--mut);margin:0 0 14px}
+.ifs-panel ul{list-style:none;margin:0;padding:0}
+.ifs-panel li{display:flex;align-items:baseline;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.ifs-panel li:first-child{border-top:0}
+.ifs-panel li b{font-size:25px;font-weight:700;letter-spacing:-.6px;min-width:82px}
+.ifs-panel li span{font-size:13.5px;color:var(--mut);line-height:1.4}
+.ifs-panel .n{margin:14px 0 0;font-size:11.5px;color:var(--mut);line-height:1.45}
+
+/* ---- boutons ----
+   Toutes les regles de couleur portent DEUX classes (.ifs .ifs-btn), jamais
+   une seule. Sinon « .ifs a{color:inherit} » plus haut, qui vaut une classe
+   + un type, l'emporte sur « .ifs-btn{color:#fff} » qui ne vaut qu'une
+   classe : le bouton reste noir et son texte devient noir aussi. Constate a
+   l'ecran, pas dans le code. */
+.ifs-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.ifs .ifs-btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;
+  border:1px solid var(--acc);border-radius:999px;padding:14px 28px;font-size:15px;
+  font-weight:600;transition:transform .15s}
+.ifs .ifs-btn:hover{transform:translateY(-1px);color:#fff}
+.ifs .ifs-btn.gh{background:transparent;color:var(--ink);border-color:var(--line)}
+.ifs .ifs-btn.gh:hover{border-color:var(--acc);color:var(--ink)}
+
+/* ---- grilles ---- */
+.ifs-g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ifs-g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.ifs-card{border:1px solid var(--line);border-radius:16px;padding:26px 24px;background:#fff;
+  display:flex;flex-direction:column}
+.ifs-card .k{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mut);margin:0 0 10px}
+.ifs-card p{font-size:14.8px;color:#4a4753}
+.ifs-card ul{margin:4px 0 0;padding-left:18px;font-size:14.5px;color:#4a4753}
+.ifs-card li{margin:5px 0}
+.ifs-card .foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--mut)}
+.ifs-card .foot b{color:var(--ink);font-size:15px}
+
+/* ---- etapes ---- */
+.ifs-steps{counter-reset:st;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;
+  list-style:none;margin:0;padding:0}
+.ifs-steps li{counter-increment:st;border-top:2px solid var(--acc);padding-top:16px}
+.ifs-steps li::before{content:counter(st,decimal-leading-zero);display:block;
+  font-size:12.5px;font-weight:700;letter-spacing:.1em;color:var(--mut);margin-bottom:7px}
+.ifs-steps h3{font-size:16.5px;margin-bottom:6px}
+.ifs-steps p{font-size:14px;color:#4a4753;margin:0}
+
+/* ---- tableau ---- */
+.ifs-tw{border:1px solid var(--line);border-radius:14px;overflow-x:auto;background:#fff}
+.ifs-t{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+.ifs-t th{text-align:left;background:var(--soft);color:var(--mut);font-weight:600;font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;padding:14px 16px;border-bottom:1px solid var(--line)}
+.ifs-t td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.ifs-t tr:last-child td{border-bottom:0}
+.ifs-t td b{font-weight:600}
+.ifs-t .mut{color:var(--mut)}
+
+/* ---- pastilles de publications ---- */
+.ifs-pubs{display:flex;flex-wrap:wrap;gap:9px}
+.ifs-pub{display:inline-block;border:1px solid var(--line);border-radius:999px;
+  padding:8px 15px;font-size:13.5px;font-weight:500;background:#fff;white-space:nowrap}
+.ifs-pub b{font-weight:700}
+.ifs-pub .da{color:var(--mut);font-weight:600;font-size:12px;margin-left:6px}
+
+/* ---- deux colonnes inclus / non inclus ---- */
+.ifs-inc li{list-style:none;padding:11px 0 11px 30px;border-top:1px solid var(--line);
+  position:relative;font-size:14.8px}
+.ifs-inc ul{margin:0;padding:0}
+.ifs-inc li:first-child{border-top:0}
+.ifs-inc li::before{position:absolute;left:0;top:11px;font-weight:700}
+.ifs-inc.yes li::before{content:"+";color:#1f9d55}
+.ifs-inc.no li::before{content:"\2013";color:var(--mut)}
+
+/* ---- faq ---- */
+.ifs-faq details{border-top:1px solid var(--line);padding:0}
+.ifs-faq details:last-child{border-bottom:1px solid var(--line)}
+.ifs-faq summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;position:relative;
+  font-weight:600;font-size:16.5px}
+.ifs-faq summary::-webkit-details-marker{display:none}
+.ifs-faq summary::after{content:"+";position:absolute;right:6px;top:15px;font-size:22px;
+  font-weight:400;color:var(--mut)}
+.ifs-faq details[open] summary::after{content:"\2013"}
+.ifs-faq .a{padding:0 40px 20px 0;font-size:15px;color:#4a4753}
+.ifs-faq .a p:last-child{margin-bottom:0}
+
+/* ---- bande finale ---- */
+.ifs-end{background:var(--acc);color:#fff;border-radius:22px;padding:52px 44px;
+  margin:0 0 66px;text-align:center}
+.ifs-end h2{color:#fff;margin-bottom:10px}
+.ifs-end p{color:#c9c6d0;max-width:56ch;margin:0 auto 22px}
+.ifs .ifs-end .ifs-btn{background:#fff;color:var(--acc);border-color:#fff}
+.ifs .ifs-end .ifs-btn:hover{color:var(--acc)}
+.ifs .ifs-end .ifs-btn.gh{background:transparent;color:#fff;border-color:rgba(255,255,255,.42)}
+.ifs-end .ifs-cta-row{justify-content:center}
+.ifs-note{font-size:12.5px;color:var(--mut);padding:0 0 40px;line-height:1.55}
+
+/* ---- responsive ---- */
+@media(max-width:980px){
+  .ifs-hero-g{grid-template-columns:1fr;gap:34px}
+  .ifs-g3,.ifs-g2{grid-template-columns:1fr}
+  .ifs-steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .ifs-s{padding:48px 0}
+  .ifs-steps{grid-template-columns:1fr}
+  .ifs-end{padding:38px 24px;border-radius:16px}
+  .ifs-tag{display:none}
+  .ifs-lede{font-size:17px}
+}
+</style>
+<div class="ifs"><div class="ifs-w"><div class="ifs-brand"><span class="ifs-sphere"></span><span class="ifs-word">Influ&uuml;s<i>.</i></span><span class="ifs-tag">Press&nbsp;Service</span></div></div>
+<section class="ifs-hero"><div class="ifs-w"><div class="ifs-hero-g">
+  <div>
+    <p class="ifs-eb">Press service</p>
+    <h1>Your brand, in the publications your buyers already read.</h1>
+    <p class="ifs-lede">We place your story with the press &mdash; announcements,
+      by-lined articles and brand mentions &mdash; on a catalogue of
+      126 publications you can browse, filter and order from directly.</p>
+    <div class="ifs-cta-row">
+      <a class="ifs-btn" href="https://influus.com/bulk-order/">Browse the catalogue</a>
+      <a class="ifs-btn gh" href="https://influus.com/contact/">Talk to us first</a>
+    </div>
+  </div>
+  <aside class="ifs-panel">
+    <p class="h">The catalogue today</p>
+    <ul>
+      <li><b>159</b><span>placements ready to order</span></li>
+      <li><b>126</b><span>distinct publications</span></li>
+      <li><b>3</b><span>formats: release, guest post, mention</span></li>
+      <li><b>$95</b><span>entry price &middot; median $350</span></li>
+    </ul>
+    <p class="n">Counted on the live catalogue, 26 August 2026. Prices in USD.</p>
+  </aside>
+</div></div></section>
+
+<section class="ifs-s alt"><div class="ifs-w">
+  <p class="ifs-eb">What you are buying</p>
+  <h2>Three formats. They are not interchangeable.</h2>
+  <p class="ifs-sub">Most agencies sell &laquo;&nbsp;press coverage&nbsp;&raquo;
+    as one thing. It is three, and the right one depends on whether you want a
+    headline, a durable asset, or a name-drop.</p>
+  <div class="ifs-g3"><article class="ifs-card"><p class="k">87 in the catalogue</p><h3>Press Release</h3><p>Your announcement, rewritten as news and published on the outlet.</p><ul><li>You give us the announcement and the angle</li><li>We write it in the publication&rsquo;s own register</li><li>It goes out under the outlet&rsquo;s byline</li><li>You get the live URL</li></ul><div class="foot">Best for: Launches, funding rounds, product news, milestones.<br><b>$95 – $1,500</b></div></article><article class="ifs-card"><p class="k">71 in the catalogue</p><h3>Guest Post</h3><p>A full article published under your name, on the publication.</p><ul><li>A subject you actually have something to say about</li><li>We write it, or you supply the draft</li><li>Published with your byline and your bio</li><li>Usually the strongest link you can buy</li></ul><div class="foot">Best for: Authority, SEO, a page that keeps working for years.<br><b>$120 – $995</b></div></article><article class="ifs-card"><p class="k">1 in the catalogue</p><h3>Brand Mention</h3><p>Your brand cited inside an article the outlet is already writing.</p><ul><li>No article to produce on your side</li><li>A contextual citation, not an advertorial</li><li>The cheapest way onto a high-authority domain</li><li>Shortest turnaround of the three</li></ul><div class="foot">Best for: Credibility on a name your prospects already read.<br><b>$995</b></div></article></div>
+</div></section>
+
+<section class="ifs-s"><div class="ifs-w">
+  <p class="ifs-eb">How it works</p>
+  <h2>From brief to live URL.</h2>
+  <p class="ifs-sub">Five steps. You are only asked for two of them.</p>
+  <ol class="ifs-steps"><li><h3>Pick your placements</h3><p>Filter the full catalogue by outlet, category, minimum DA or price, and put everything in one basket.</p></li><li><h3>Send the brief</h3><p>One paragraph: what you are announcing, the angle, the links you want carried.</p></li><li><h3>We produce</h3><p>We write to each outlet&rsquo;s house style, or we edit the draft you already have.</p></li><li><h3>You approve</h3><p>You read it before it leaves. Nothing is submitted on your behalf without your sign-off.</p></li><li><h3>Publication &amp; report</h3><p>You get the live URL for every placement, in one list.</p></li></ol>
+</div></section>
+
+<section class="ifs-s alt"><div class="ifs-w">
+  <p class="ifs-eb">In the catalogue</p>
+  <h2>126 publications, ordered like a shop.</h2>
+  <p class="ifs-sub">A selection of what is listed right now. The full list is
+    searchable and filterable by category, minimum DA and price.</p>
+  <div class="ifs-pubs"><span class="ifs-pub"><b>washingtonpost.com</b><span class="da">DA&nbsp;95</span></span><span class="ifs-pub"><b>Harvard.edu</b><span class="da">DA&nbsp;94</span></span><span class="ifs-pub"><b>MSN.com</b><span class="da">DA&nbsp;94</span></span><span class="ifs-pub"><b>Yale.edu</b><span class="da">DA&nbsp;93</span></span><span class="ifs-pub"><b>Cornell.edu</b><span class="da">DA&nbsp;93</span></span><span class="ifs-pub"><b>Columbia.edu</b><span class="da">DA&nbsp;93</span></span><span class="ifs-pub"><b>TED.com</b><span class="da">DA&nbsp;93</span></span><span class="ifs-pub"><b>Entrepreneur.com</b><span class="da">DA&nbsp;93</span></span><span class="ifs-pub"><b>Buzzfeed.com</b><span class="da">DA&nbsp;93</span></span><span class="ifs-pub"><b>NYU.edu</b><span class="da">DA&nbsp;92</span></span><span class="ifs-pub"><b>VentureBeat.com</b><span class="da">DA&nbsp;92</span></span><span class="ifs-pub"><b>SeekingAlpha.com</b><span class="da">DA&nbsp;92</span></span><span class="ifs-pub"><b>USC.edu</b><span class="da">DA&nbsp;91</span></span><span class="ifs-pub"><b>PSU.edu</b><span class="da">DA&nbsp;91</span></span><span class="ifs-pub"><b>Duke.edu</b><span class="da">DA&nbsp;90</span></span><span class="ifs-pub"><b>SAP.com</b><span class="da">DA&nbsp;90</span></span><span class="ifs-pub"><b>Spin.com</b><span class="da">DA&nbsp;85</span></span><span class="ifs-pub"><b>ReadWrite.com</b><span class="da">DA&nbsp;85</span></span><span class="ifs-pub"><b>StreetInsider.com</b><span class="da">DA&nbsp;84</span></span><span class="ifs-pub"><b>TechTimes.com</b><span class="da">DA&nbsp;82</span></span><span class="ifs-pub"><b>DailyKos.com</b><span class="da">DA&nbsp;82</span></span><span class="ifs-pub"><b>KPopStarz.com</b><span class="da">DA&nbsp;81</span></span><span class="ifs-pub"><b>ZMEScience.com</b><span class="da">DA&nbsp;81</span></span><span class="ifs-pub"><b>TheFrisky.com</b><span class="da">DA&nbsp;80</span></span><span class="ifs-pub"><b>SYR.edu</b><span class="da">DA&nbsp;80</span></span><span class="ifs-pub"><b>Techaeris.com</b><span class="da">DA&nbsp;75</span></span><span class="ifs-pub"><b>BeforeItsNews.com</b><span class="da">DA&nbsp;73</span></span><span class="ifs-pub"><b>HNGN.com</b><span class="da">DA&nbsp;72</span></span><span class="ifs-pub"><b>NatureWorldNews.com</b><span class="da">DA&nbsp;70</span></span><span class="ifs-pub"><b>VCPost.com</b><span class="da">DA&nbsp;67</span></span><span class="ifs-pub"><b>GearFuse.com</b><span class="da">DA&nbsp;64</span></span><span class="ifs-pub"><b>DeadlineNews.co.uk</b><span class="da">DA&nbsp;63</span></span><span class="ifs-pub"><b>DailyUw.com</b><span class="da">DA&nbsp;63</span></span><span class="ifs-pub"><b>AugustaFreePress.com</b><span class="da">DA&nbsp;61</span></span></div>
+  <div class="ifs-cta-row">
+    <a class="ifs-btn" href="https://influus.com/bulk-order/">See all 159 placements</a>
+  </div>
+</div></section>
+
+<section class="ifs-s"><div class="ifs-w">
+  <p class="ifs-eb">Straight answers</p>
+  <h2>What is included, and what is not.</h2>
+  <div class="ifs-g2" style="margin-top:26px">
+    <div class="ifs-inc yes"><h3>Included</h3><ul><li>Writing and editing to the outlet&rsquo;s format</li><li>Your approval before submission</li><li>Placement handled end to end with the publication</li><li>The live URL of every published piece</li><li>The links you asked for, where the outlet allows links</li></ul></div>
+    <div class="ifs-inc no"><h3>Not included</h3><ul><li>Editorial control over an independent newsroom</li><li>A promise that Google will index or rank a given page</li><li>Traffic or conversion guarantees</li><li>Removal of a piece once the outlet has published it</li><li>Placements outside the catalogue &mdash; ask and we quote</li></ul></div>
+  </div>
+</div></section>
+
+<section class="ifs-s alt"><div class="ifs-w">
+  <p class="ifs-eb">Questions</p>
+  <h2>Before you order.</h2>
+  <div style="margin-top:22px"><div class="ifs-faq"><details open><summary>What is DA, and why does it matter?</summary><div class="a"><p>Domain Authority is a third-party score that estimates how much weight a domain carries in search. It is an indicator, not a guarantee. Where a listing states a DA we show it, and you can set a minimum DA when you filter the catalogue.</p></div></details><details><summary>What does Do-Follow change?</summary><div class="a"><p>A do-follow link passes ranking signal to your site; a nofollow link does not, but still carries the mention, the referral traffic and the credibility. 52 of the 159 listings are flagged Do-Follow, and you can filter on it.</p></div></details><details><summary>Do I have to write anything?</summary><div class="a"><p>No. Send the announcement and the angle and we write it. If you have a draft you would rather use, we edit it to the outlet&rsquo;s format instead.</p></div></details><details><summary>Can I order several placements at once?</summary><div class="a"><p>Yes &mdash; that is what the catalogue page is for. Set a quantity on as many rows as you like and add the whole selection to the cart in one go.</p></div></details><details><summary>Is the article permanent?</summary><div class="a"><p>Placements are intended as permanent. An outlet remains free to edit or withdraw its own content, which is true of any earned coverage.</p></div></details><details><summary>I need an outlet that is not listed.</summary><div class="a"><p>Ask. The catalogue is what we hold ready; it is not the limit of what we can place.</p></div></details></div></div>
+</div></section>
+
+<div class="ifs-w"><div class="ifs-end"><h2>Pick your publications and go.</h2><p>The whole catalogue is on one page, with filters and a single basket. Or tell us the goal and we build the selection for you.</p><div class="ifs-cta-row"><a class="ifs-btn" href="https://influus.com/bulk-order/">Browse the catalogue</a><a class="ifs-btn gh" href="https://influus.com/contact/">Book a call</a></div></div></div>
+<div class="ifs-w"><p class="ifs-note">Catalogue figures counted on
+  influus.com on 26 August 2026: 159 listings, 126 distinct publications,
+  prices from $95 to $1,500 (median $350), 52 listings
+  flagged Do-Follow. Domain Authority is a third-party metric and is shown
+  only where the listing states it.</p></div>
+</div>

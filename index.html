@@ -1,0 +1,171 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Influ&uuml;s &middot; service pages preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.ifs{--ink:#1c1a24;--mut:#8b8698;--line:#ececf1;--soft:#faf9fc;--acc:#1b1922;
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--ink);line-height:1.62;font-size:16px;background:#fff}
+.ifs *{box-sizing:border-box}
+.ifs img{max-width:100%;height:auto}
+.ifs a{color:inherit}
+.ifs-w{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ---- marque ---- */
+.ifs-brand{display:flex;align-items:center;gap:14px;padding:30px 0 0}
+.ifs-sphere{width:44px;height:44px;flex:0 0 44px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#f3f1f5 0%,#c9c6d0 34%,#6f6b7a 72%,#2b2833 100%);
+  box-shadow:0 6px 16px rgba(28,26,36,.22),inset -3px -4px 8px rgba(0,0,0,.28),inset 3px 4px 8px rgba(255,255,255,.5)}
+.ifs-word{font-weight:700;font-size:29px;letter-spacing:-.5px;line-height:1}
+.ifs-word i{font-style:normal;color:var(--mut)}
+.ifs-tag{align-self:flex-end;margin-bottom:5px;font-size:10.5px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--acc);
+  padding:4px 9px;border-radius:5px}
+
+/* ---- rythme de section ---- */
+.ifs-s{padding:66px 0}
+.ifs-s.alt{background:var(--soft);border-block:1px solid var(--line)}
+.ifs-eb{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:11.5px;
+  font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.ifs-eb::before{content:"";flex:0 0 22px;height:2px;border-radius:2px;background:var(--acc)}
+.ifs h1{font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-1.4px;
+  font-weight:700;margin:0 0 18px}
+.ifs h2{font-size:clamp(26px,3.4vw,38px);line-height:1.16;letter-spacing:-.9px;
+  font-weight:700;margin:0 0 12px}
+.ifs h3{font-size:19px;line-height:1.3;letter-spacing:-.3px;font-weight:600;margin:0 0 8px}
+.ifs p{margin:0 0 14px}
+.ifs-lede{font-size:19px;color:#4a4753;max-width:62ch}
+.ifs-sub{color:var(--mut);max-width:66ch;margin:0 0 30px}
+
+/* ---- bandeau ---- */
+.ifs-hero{padding:52px 0 60px}
+.ifs-hero-g{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+.ifs-panel{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:18px;
+  padding:26px 26px 20px;box-shadow:0 18px 44px rgba(28,26,36,.08);background:#fff}
+.ifs-panel p.h{font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--mut);margin:0 0 14px}
+.ifs-panel ul{list-style:none;margin:0;padding:0}
+.ifs-panel li{display:flex;align-items:baseline;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.ifs-panel li:first-child{border-top:0}
+.ifs-panel li b{font-size:25px;font-weight:700;letter-spacing:-.6px;min-width:82px}
+.ifs-panel li span{font-size:13.5px;color:var(--mut);line-height:1.4}
+.ifs-panel .n{margin:14px 0 0;font-size:11.5px;color:var(--mut);line-height:1.45}
+
+/* ---- boutons ----
+   Toutes les regles de couleur portent DEUX classes (.ifs .ifs-btn), jamais
+   une seule. Sinon « .ifs a{color:inherit} » plus haut, qui vaut une classe
+   + un type, l'emporte sur « .ifs-btn{color:#fff} » qui ne vaut qu'une
+   classe : le bouton reste noir et son texte devient noir aussi. Constate a
+   l'ecran, pas dans le code. */
+.ifs-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.ifs .ifs-btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;
+  border:1px solid var(--acc);border-radius:999px;padding:14px 28px;font-size:15px;
+  font-weight:600;transition:transform .15s}
+.ifs .ifs-btn:hover{transform:translateY(-1px);color:#fff}
+.ifs .ifs-btn.gh{background:transparent;color:var(--ink);border-color:var(--line)}
+.ifs .ifs-btn.gh:hover{border-color:var(--acc);color:var(--ink)}
+
+/* ---- grilles ---- */
+.ifs-g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ifs-g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.ifs-card{border:1px solid var(--line);border-radius:16px;padding:26px 24px;background:#fff;
+  display:flex;flex-direction:column}
+.ifs-card .k{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mut);margin:0 0 10px}
+.ifs-card p{font-size:14.8px;color:#4a4753}
+.ifs-card ul{margin:4px 0 0;padding-left:18px;font-size:14.5px;color:#4a4753}
+.ifs-card li{margin:5px 0}
+.ifs-card .foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--mut)}
+.ifs-card .foot b{color:var(--ink);font-size:15px}
+
+/* ---- etapes ---- */
+.ifs-steps{counter-reset:st;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;
+  list-style:none;margin:0;padding:0}
+.ifs-steps li{counter-increment:st;border-top:2px solid var(--acc);padding-top:16px}
+.ifs-steps li::before{content:counter(st,decimal-leading-zero);display:block;
+  font-size:12.5px;font-weight:700;letter-spacing:.1em;color:var(--mut);margin-bottom:7px}
+.ifs-steps h3{font-size:16.5px;margin-bottom:6px}
+.ifs-steps p{font-size:14px;color:#4a4753;margin:0}
+
+/* ---- tableau ---- */
+.ifs-tw{border:1px solid var(--line);border-radius:14px;overflow-x:auto;background:#fff}
+.ifs-t{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+.ifs-t th{text-align:left;background:var(--soft);color:var(--mut);font-weight:600;font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;padding:14px 16px;border-bottom:1px solid var(--line)}
+.ifs-t td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.ifs-t tr:last-child td{border-bottom:0}
+.ifs-t td b{font-weight:600}
+.ifs-t .mut{color:var(--mut)}
+
+/* ---- pastilles de publications ---- */
+.ifs-pubs{display:flex;flex-wrap:wrap;gap:9px}
+.ifs-pub{display:inline-block;border:1px solid var(--line);border-radius:999px;
+  padding:8px 15px;font-size:13.5px;font-weight:500;background:#fff;white-space:nowrap}
+.ifs-pub b{font-weight:700}
+.ifs-pub .da{color:var(--mut);font-weight:600;font-size:12px;margin-left:6px}
+
+/* ---- deux colonnes inclus / non inclus ---- */
+.ifs-inc li{list-style:none;padding:11px 0 11px 30px;border-top:1px solid var(--line);
+  position:relative;font-size:14.8px}
+.ifs-inc ul{margin:0;padding:0}
+.ifs-inc li:first-child{border-top:0}
+.ifs-inc li::before{position:absolute;left:0;top:11px;font-weight:700}
+.ifs-inc.yes li::before{content:"+";color:#1f9d55}
+.ifs-inc.no li::before{content:"\2013";color:var(--mut)}
+
+/* ---- faq ---- */
+.ifs-faq details{border-top:1px solid var(--line);padding:0}
+.ifs-faq details:last-child{border-bottom:1px solid var(--line)}
+.ifs-faq summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;position:relative;
+  font-weight:600;font-size:16.5px}
+.ifs-faq summary::-webkit-details-marker{display:none}
+.ifs-faq summary::after{content:"+";position:absolute;right:6px;top:15px;font-size:22px;
+  font-weight:400;color:var(--mut)}
+.ifs-faq details[open] summary::after{content:"\2013"}
+.ifs-faq .a{padding:0 40px 20px 0;font-size:15px;color:#4a4753}
+.ifs-faq .a p:last-child{margin-bottom:0}
+
+/* ---- bande finale ---- */
+.ifs-end{background:var(--acc);color:#fff;border-radius:22px;padding:52px 44px;
+  margin:0 0 66px;text-align:center}
+.ifs-end h2{color:#fff;margin-bottom:10px}
+.ifs-end p{color:#c9c6d0;max-width:56ch;margin:0 auto 22px}
+.ifs .ifs-end .ifs-btn{background:#fff;color:var(--acc);border-color:#fff}
+.ifs .ifs-end .ifs-btn:hover{color:var(--acc)}
+.ifs .ifs-end .ifs-btn.gh{background:transparent;color:#fff;border-color:rgba(255,255,255,.42)}
+.ifs-end .ifs-cta-row{justify-content:center}
+.ifs-note{font-size:12.5px;color:var(--mut);padding:0 0 40px;line-height:1.55}
+
+/* ---- responsive ---- */
+@media(max-width:980px){
+  .ifs-hero-g{grid-template-columns:1fr;gap:34px}
+  .ifs-g3,.ifs-g2{grid-template-columns:1fr}
+  .ifs-steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .ifs-s{padding:48px 0}
+  .ifs-steps{grid-template-columns:1fr}
+  .ifs-end{padding:38px 24px;border-radius:16px}
+  .ifs-tag{display:none}
+  .ifs-lede{font-size:17px}
+}
+
+.ifs-idx{max-width:760px;margin:0 auto;padding:70px 22px}
+.ifs-idx a.row{display:block;border:1px solid var(--line);border-radius:16px;
+ padding:24px 26px;margin:0 0 14px;text-decoration:none;transition:border-color .15s}
+.ifs-idx a.row:hover{border-color:var(--acc)}
+.ifs-idx a.row h3{margin:0 0 4px}
+.ifs-idx a.row p{margin:0;color:var(--mut);font-size:14.5px}
+</style>
+<div class="ifs"><div class="ifs-idx">
+  <div class="ifs-w"><div class="ifs-brand"><span class="ifs-sphere"></span><span class="ifs-word">Influ&uuml;s<i>.</i></span><span class="ifs-tag">Preview</span></div></div>
+  <h1 style="font-size:34px;margin-top:26px">Service pages</h1>
+  <p class="ifs-sub">Preview of the two pages describing the press service and
+    the matchmaking service. Built 26 August 2026.</p>
+  <a class="row" href="press-service.html"><h3>Press Service</h3>
+    <p>159 placements, 126 publications, three formats explained.</p></a>
+  <a class="row" href="matchmaking.html"><h3>Matchmaking Service</h3>
+    <p>Brands and creators: programs, process, five audience tiers.</p></a>
+</div></div>
