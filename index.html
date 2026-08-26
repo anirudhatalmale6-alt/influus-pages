@@ -12,6 +12,23 @@
 .ifs a{color:inherit}
 .ifs-w{max-width:1180px;margin:0 auto;padding:0 22px}
 
+/* ---- blindage contre le theme hote ----
+   Le bloc est colle DANS une page Ohio qui a deja son CSS. Poser la police
+   et la couleur sur le seul conteneur .ifs ne suffit pas : un titre les
+   recoit alors par HERITAGE, et une valeur heritee perd contre n'importe
+   quelle regle posee directement sur l'element, meme un « h1{...} » nu.
+   On redeclare donc explicitement, ici, ce qui doit tenir. « inherit » garde
+   une seule source de verite (le conteneur) tout en gagnant la cascade.
+   Teste avec tests-theme.py, qui entoure le bloc d'un theme hostile. */
+.ifs h1,.ifs h2,.ifs h3,.ifs h4{font-family:inherit;color:inherit;
+  text-transform:none;letter-spacing:inherit}
+.ifs p,.ifs li,.ifs td,.ifs th,.ifs summary,.ifs span,.ifs b,.ifs a,
+.ifs input,.ifs button{font-family:inherit;line-height:inherit}
+.ifs p,.ifs li{text-transform:none}
+.ifs ul,.ifs ol{list-style:none}
+.ifs-card ul{list-style:disc}
+.ifs a{text-decoration:none}
+
 /* ---- marque ---- */
 .ifs-brand{display:flex;align-items:center;gap:14px;padding:30px 0 0}
 .ifs-sphere{width:44px;height:44px;flex:0 0 44px;border-radius:50%;
@@ -26,9 +43,9 @@
 /* ---- rythme de section ---- */
 .ifs-s{padding:66px 0}
 .ifs-s.alt{background:var(--soft);border-block:1px solid var(--line)}
-.ifs-eb{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:11.5px;
+.ifs .ifs-eb{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-size:11.5px;
   font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
-.ifs-eb::before{content:"";flex:0 0 22px;height:2px;border-radius:2px;background:var(--acc)}
+.ifs .ifs-eb::before{content:"";flex:0 0 22px;height:2px;border-radius:2px;background:var(--acc)}
 .ifs h1{font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-1.4px;
   font-weight:700;margin:0 0 18px}
 .ifs h2{font-size:clamp(26px,3.4vw,38px);line-height:1.16;letter-spacing:-.9px;
