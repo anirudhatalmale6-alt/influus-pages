@@ -172,6 +172,106 @@
   .ifs-tag{display:none}
   .ifs-lede{font-size:17px}
 }
+
+/* ======================================================================
+   DECOUPAGE COULEUR
+   ----------------------------------------------------------------------
+   Une page longue lue d'un trait sur fond blanc devient un mur. Le
+   decoupage sert a dire « ici commence autre chose » sans que le lecteur
+   ait a lire pour le savoir.
+
+   AUCUNE COULEUR NOUVELLE N'EST INVENTEE. Les quatre bandes sortent de la
+   palette deja en ligne sur /bulk-order/ : le charbon #1b1922, le gris
+   #8b8698, le blanc casse #faf9fc, et les tons de la sphere en degrade
+   (#f3f1f5 -> #c9c6d0 -> #6f6b7a -> #2b2833). Inventer un bleu ici aurait
+   fait deux identites sur le meme site.
+
+   Le rythme est : clair, doux, clair, TEINTE, clair, SOMBRE, clair. La
+   bande sombre ne revient qu'une fois par page — deux, et elle ne coupe
+   plus rien.
+   ====================================================================== */
+.ifs{--tint:#f2f0f6;--deep:#2b2833;--soft2:#f7f6fa}
+.ifs-s.tint{background:var(--tint);border-block:1px solid #e6e3ee}
+.ifs-s.ink{background:var(--acc);color:#fff;border-block:0}
+.ifs-s.ink h2,.ifs-s.ink h3{color:#fff}
+.ifs-s.ink .ifs-sub,.ifs-s.ink p{color:#c9c6d0}
+.ifs-s.ink .ifs-eb{color:#a5a1b0}
+.ifs-s.ink .ifs-eb::before{background:#fff}
+/* Sur fond sombre, une carte blanche ferait une tache. On la retourne. */
+.ifs-s.ink .ifs-card{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.16)}
+.ifs-s.ink .ifs-card p,.ifs-s.ink .ifs-card li{color:#d6d3de}
+.ifs-s.ink .ifs-card .k{color:#a5a1b0}
+.ifs-s.ink .ifs-card .foot{border-top-color:rgba(255,255,255,.16);color:#a5a1b0}
+.ifs-s.ink .ifs-card .foot b{color:#fff}
+.ifs .ifs-s.ink .ifs-btn{background:#fff;color:var(--acc);border-color:#fff}
+.ifs .ifs-s.ink .ifs-btn.gh{background:transparent;color:#fff;border-color:rgba(255,255,255,.42)}
+.ifs-s.ink .ifs-steps li{border-top-color:rgba(255,255,255,.5)}
+.ifs-s.ink .ifs-steps li::before{color:#a5a1b0}
+.ifs-s.ink .ifs-steps p{color:#c9c6d0}
+
+/* Le filet de separation : 4 segments dans l'ordre du degrade de la sphere.
+   C'est la seule decoration de la page, et elle vient de la marque. */
+.ifs-rail{height:3px;display:flex;overflow:hidden}
+.ifs-rail i{flex:1}
+/* Le premier segment etait #f3f1f5, la teinte la plus claire de la sphere :
+   invisible sur du blanc, donc le filet paraissait casse d'un cote. Les
+   quatre valeurs restent la progression de la sphere, mais decalees pour
+   qu'aucune ne disparaisse sur l'un des deux fonds. */
+.ifs-rail i:nth-child(1){background:#dcd9e4}
+.ifs-rail i:nth-child(2){background:#b4b0be}
+.ifs-rail i:nth-child(3){background:#6f6b7a}
+.ifs-rail i:nth-child(4){background:#2b2833}
+
+/* ---- images ----
+   Chaque emplacement a un RATIO FIXE. Sans ratio, la page saute au moment
+   ou l'image arrive : le texte a deja ete lu a la mauvaise place. Le
+   placeholder porte le nom du fichier attendu, pour qu'on sache quoi
+   deposer sans rouvrir le code. */
+.ifs-fig{margin:0;border-radius:18px;overflow:hidden;background:var(--soft2);
+  border:1px solid var(--line)}
+.ifs-fig .box{position:relative;width:100%;aspect-ratio:var(--r,3/2);
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 120% at 30% 20%,#f6f5f9 0%,#e9e7ef 55%,#dcd9e4 100%)}
+.ifs-fig img{width:100%;height:100%;object-fit:cover;display:block}
+.ifs-fig .ph{text-align:center;padding:22px;max-width:88%}
+.ifs-fig .ph b{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#6f6b7a;margin-bottom:6px}
+.ifs-fig .ph span{font-size:13px;color:#8b8698;line-height:1.5}
+.ifs-fig figcaption{font-size:12.5px;color:var(--mut);padding:11px 16px;
+  border-top:1px solid var(--line);background:#fff}
+.ifs-s.ink .ifs-fig{border-color:rgba(255,255,255,.16)}
+.ifs-s.ink .ifs-fig figcaption{background:transparent;color:#a5a1b0;
+  border-top-color:rgba(255,255,255,.16)}
+
+/* ---- bloc texte + image, alterne ---- */
+.ifs-media{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.ifs-media.rev .txt{order:2}
+.ifs-media h2{margin-bottom:14px}
+.ifs-media ul{margin:14px 0 0;padding:0}
+.ifs-media li{list-style:none;padding:10px 0 10px 26px;position:relative;
+  border-top:1px solid var(--line);font-size:15px}
+.ifs-media li:first-child{border-top:0}
+.ifs-media li::before{content:"";position:absolute;left:2px;top:19px;width:9px;height:9px;
+  border-radius:50%;background:var(--acc)}
+.ifs-s.ink .ifs-media li{border-top-color:rgba(255,255,255,.16);color:#d6d3de}
+.ifs-s.ink .ifs-media li::before{background:#fff}
+
+/* ---- bande de chiffres ---- */
+.ifs-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px}
+.ifs-nums div{border-left:2px solid var(--acc);padding:2px 0 2px 16px}
+.ifs-nums b{display:block;font-size:31px;font-weight:700;letter-spacing:-1px;line-height:1.1}
+.ifs-nums span{font-size:13.5px;color:var(--mut);line-height:1.4;display:block;margin-top:4px}
+.ifs-s.ink .ifs-nums div{border-left-color:#fff}
+.ifs-s.ink .ifs-nums span{color:#a5a1b0}
+
+@media(max-width:980px){
+  .ifs-media{grid-template-columns:1fr;gap:26px}
+  .ifs-media.rev .txt{order:0}
+  .ifs-nums{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .ifs-nums{grid-template-columns:1fr}
+}
 </style>
 <div class="ifs"><div class="ifs-w"><div class="ifs-brand"><span class="ifs-sphere"></span><span class="ifs-word">Influ&uuml;s<i>.</i></span><span class="ifs-tag">Matchmaking</span></div></div>
 <section class="ifs-hero"><div class="ifs-w"><div class="ifs-hero-g">
@@ -199,6 +299,11 @@
   </aside>
 </div></div></section>
 
+<div class="ifs-rail"><i></i><i></i><i></i><i></i></div>
+<section class="ifs-s"><div class="ifs-w">
+  <div class="ifs-media"><div class="txt"><p class="ifs-eb">Why creators</p><h2>The recommendation is the product.</h2><p class="ifs-sub">An audience follows a creator for the creator. That is the whole asset, and it is also why a badly matched campaign does more damage than no campaign.</p><ul><li>It reaches people who opted in, not people who were targeted</li><li>It is made in a format that audience already watches</li><li>The content stays usable on your own channels afterwards</li><li>It can be repeated with the same creator, and gets cheaper</li></ul></div><figure class="ifs-fig"><div class="box" style="--r:3/2"><img src="img/match-hero.jpg" alt="Matchmaking &mdash; hero" loading="lazy" class="ifs-ph" data-nom="Matchmaking &mdash; hero" data-ratio="3:2"></div><figcaption>Emplacement image &mdash; deposer img/match-hero.jpg</figcaption></figure></div>
+</div></section>
+
 <section class="ifs-s alt"><div class="ifs-w">
   <p class="ifs-eb">The programs</p>
   <h2>Three ways to work with creators.</h2>
@@ -212,6 +317,7 @@
   <h2>From brief to reporting.</h2>
   <p class="ifs-sub">Nothing is contracted before you have seen names.</p>
   <ol class="ifs-steps"><li><h3>The brief</h3><p>Product, audience, market, budget and what a win looks like. One call is usually enough.</p></li><li><h3>The shortlist</h3><p>We come back with named creators, their audience, and why each one fits &mdash; not a follower count on its own.</p></li><li><h3>Terms</h3><p>Deliverables, dates, exclusivity and usage rights agreed and contracted before anyone films anything.</p></li><li><h3>Production</h3><p>Creators produce, you review against the brief, revisions happen before publication.</p></li><li><h3>Reporting</h3><p>Reach, engagement and link performance per creator, plus the assets you are licensed to reuse.</p></li></ol>
+  <div style="margin-top:44px"><div class="ifs-media rev"><div class="txt"><p class="ifs-eb">The part nobody sees</p><h2>Sourcing, negotiating, chasing, checking.</h2><p class="ifs-sub">Finding the creator is the short part. What takes the time is everything between the yes and the published post.</p><ul><li>Contracts, exclusivity and usage rights</li><li>Product logistics and delivery</li><li>Brief, revisions and sign-off</li><li>Reporting once it is live</li></ul></div><figure class="ifs-fig"><div class="box" style="--r:3/2"><img src="img/match-work.jpg" alt="La mise en relation" loading="lazy" class="ifs-ph" data-nom="La mise en relation" data-ratio="3:2"></div><figcaption>Emplacement image &mdash; deposer img/match-work.jpg</figcaption></figure></div></div>
 </div></section>
 
 <section class="ifs-s alt"><div class="ifs-w">
@@ -224,6 +330,16 @@
       <th>Typical deliverable</th></tr></thead>
     <tbody><tr><td><b>Nano &amp; micro</b></td><td>10K &ndash; 50K</td><td>Niche communities, high engagement, low unit cost.</td><td class="mut">Stories, a Reel or a review post. Volume plays.</td></tr><tr><td><b>Mid tier</b></td><td>50K &ndash; 250K</td><td>The working core of most campaigns.</td><td class="mut">Reel or TikTok plus stories, usually with usage rights.</td></tr><tr><td><b>Macro</b></td><td>250K &ndash; 500K</td><td>Reach with a face people recognise in the niche.</td><td class="mut">Produced content, briefed, with revision rounds.</td></tr><tr><td><b>Large</b></td><td>500K &ndash; 1M</td><td>Launch moments and category credibility.</td><td class="mut">Multi-post packages, exclusivity windows.</td></tr><tr><td><b>Mega</b></td><td>Above 1M</td><td>Mass awareness. Priced and contracted individually.</td><td class="mut">Bespoke &mdash; scoped case by case.</td></tr></tbody>
   </table></div>
+  <div style="margin-top:34px"><figure class="ifs-fig"><div class="box" style="--r:4/3"><img src="img/match-tiers.jpg" alt="Les paliers d audience" loading="lazy" class="ifs-ph" data-nom="Les paliers d audience" data-ratio="4:3"></div><figcaption>Emplacement image &mdash; deposer img/match-tiers.jpg</figcaption></figure></div>
+</div></section>
+
+<div class="ifs-rail"><i></i><i></i><i></i><i></i></div>
+<section class="ifs-s tint"><div class="ifs-w">
+  <p class="ifs-eb">Two sides</p>
+  <h2>What each side gets out of it.</h2>
+  <p class="ifs-sub">A matchmaking service that only serves the brand runs out
+    of creators. One that only serves creators has nothing to offer them.</p>
+  <div class="ifs-g2"><div class="ifs-card"><p class="k">For the brand</p><ul><li>A shortlist of names, with their audience and what they would deliver</li><li>One contract, one point of contact, one invoice</li><li>Content you approve before it is published</li><li>Usage rights written down, not assumed</li></ul></div><div class="ifs-card"><p class="k">For the creator</p><ul><li>Briefs that fit what they actually make</li><li>Terms agreed before shooting, not after</li><li>Payment terms in the contract</li><li>A brand relationship that can be repeated, not a one-off</li></ul></div></div>
 </div></section>
 
 <section class="ifs-s"><div class="ifs-w">
@@ -248,6 +364,19 @@
 </div>
 </div></section>
 
+<div class="ifs-rail"><i></i><i></i><i></i><i></i></div>
+<section class="ifs-s ink"><div class="ifs-w">
+  <p class="ifs-eb">What gets measured</p>
+  <h2>Four numbers, and the one that is not on the list.</h2>
+  <p class="ifs-sub">Reach is the easiest number to report and the least
+    useful. These are the ones worth agreeing on before the brief is signed.</p>
+  <div class="ifs-g2"><div class="ifs-card"><h3>Engagement on the post itself</h3><p>Comments and saves say more than likes. They are also harder to buy.</p></div><div class="ifs-card"><h3>Audience overlap with your buyer</h3><p>Country, language and age of the creator&rsquo;s audience, not of the creator.</p></div><div class="ifs-card"><h3>What happened on your side</h3><p>Traffic, sign-ups, orders &mdash; measured with a link or a code that belongs to that creator alone.</p></div><div class="ifs-card"><h3>Whether it can be repeated</h3><p>A creator who performs once is a result. One who performs twice is a channel.</p></div></div>
+  <p class="ifs-sub" style="margin:28px 0 0">The number deliberately absent is
+    a guaranteed view count. Nobody can promise one honestly, and a service
+    that does is quoting you a figure it cannot control.</p>
+</div></section>
+<div class="ifs-rail"><i></i><i></i><i></i><i></i></div>
+
 <section class="ifs-s alt"><div class="ifs-w">
   <p class="ifs-eb">Questions</p>
   <h2>Before you brief us.</h2>
@@ -255,4 +384,28 @@
 </div></section>
 
 <div class="ifs-w"><div class="ifs-end"><h2>Tell us the product. We come back with names.</h2><p>A short brief is enough to get a shortlist: who they are, what their audience is, what they would deliver and what it costs.</p><div class="ifs-cta-row"><a class="ifs-btn" href="https://influus.com/contact/">Start a brief</a><a class="ifs-btn gh" href="https://influus.com/press-service-2/">See the press service</a></div></div></div>
-</div>
+<script>
+(function(){
+  function pose(img){
+    var b = img.parentNode;
+    if (!b || b.dataset.pose) return;
+    b.dataset.pose = '1';
+    var d = document.createElement('div');
+    d.className = 'ph';
+    d.innerHTML = '<b></b><span></span>';
+    d.querySelector('b').textContent = img.dataset.nom || '';
+    d.querySelector('span').textContent =
+      (img.getAttribute('src') || '') + '  ·  ' + (img.dataset.ratio || '');
+    b.replaceChild(d, img);
+  }
+  var l = document.querySelectorAll('img.ifs-ph');
+  for (var i = 0; i < l.length; i++){
+    var im = l[i];
+    /* complete && naturalWidth === 0 : l'image a DEJA echoue avant que le
+       script tourne. Sans ce test, seules les images qui echouent apres le
+       chargement du script seraient remplacees. */
+    if (im.complete && im.naturalWidth === 0) pose(im);
+    else im.addEventListener('error', (function(x){ return function(){ pose(x); }; })(im));
+  }
+})();
+</script></div>

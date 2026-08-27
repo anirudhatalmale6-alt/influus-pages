@@ -172,6 +172,106 @@
   .ifs-tag{display:none}
   .ifs-lede{font-size:17px}
 }
+
+/* ======================================================================
+   DECOUPAGE COULEUR
+   ----------------------------------------------------------------------
+   Une page longue lue d'un trait sur fond blanc devient un mur. Le
+   decoupage sert a dire « ici commence autre chose » sans que le lecteur
+   ait a lire pour le savoir.
+
+   AUCUNE COULEUR NOUVELLE N'EST INVENTEE. Les quatre bandes sortent de la
+   palette deja en ligne sur /bulk-order/ : le charbon #1b1922, le gris
+   #8b8698, le blanc casse #faf9fc, et les tons de la sphere en degrade
+   (#f3f1f5 -> #c9c6d0 -> #6f6b7a -> #2b2833). Inventer un bleu ici aurait
+   fait deux identites sur le meme site.
+
+   Le rythme est : clair, doux, clair, TEINTE, clair, SOMBRE, clair. La
+   bande sombre ne revient qu'une fois par page — deux, et elle ne coupe
+   plus rien.
+   ====================================================================== */
+.ifs{--tint:#f2f0f6;--deep:#2b2833;--soft2:#f7f6fa}
+.ifs-s.tint{background:var(--tint);border-block:1px solid #e6e3ee}
+.ifs-s.ink{background:var(--acc);color:#fff;border-block:0}
+.ifs-s.ink h2,.ifs-s.ink h3{color:#fff}
+.ifs-s.ink .ifs-sub,.ifs-s.ink p{color:#c9c6d0}
+.ifs-s.ink .ifs-eb{color:#a5a1b0}
+.ifs-s.ink .ifs-eb::before{background:#fff}
+/* Sur fond sombre, une carte blanche ferait une tache. On la retourne. */
+.ifs-s.ink .ifs-card{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.16)}
+.ifs-s.ink .ifs-card p,.ifs-s.ink .ifs-card li{color:#d6d3de}
+.ifs-s.ink .ifs-card .k{color:#a5a1b0}
+.ifs-s.ink .ifs-card .foot{border-top-color:rgba(255,255,255,.16);color:#a5a1b0}
+.ifs-s.ink .ifs-card .foot b{color:#fff}
+.ifs .ifs-s.ink .ifs-btn{background:#fff;color:var(--acc);border-color:#fff}
+.ifs .ifs-s.ink .ifs-btn.gh{background:transparent;color:#fff;border-color:rgba(255,255,255,.42)}
+.ifs-s.ink .ifs-steps li{border-top-color:rgba(255,255,255,.5)}
+.ifs-s.ink .ifs-steps li::before{color:#a5a1b0}
+.ifs-s.ink .ifs-steps p{color:#c9c6d0}
+
+/* Le filet de separation : 4 segments dans l'ordre du degrade de la sphere.
+   C'est la seule decoration de la page, et elle vient de la marque. */
+.ifs-rail{height:3px;display:flex;overflow:hidden}
+.ifs-rail i{flex:1}
+/* Le premier segment etait #f3f1f5, la teinte la plus claire de la sphere :
+   invisible sur du blanc, donc le filet paraissait casse d'un cote. Les
+   quatre valeurs restent la progression de la sphere, mais decalees pour
+   qu'aucune ne disparaisse sur l'un des deux fonds. */
+.ifs-rail i:nth-child(1){background:#dcd9e4}
+.ifs-rail i:nth-child(2){background:#b4b0be}
+.ifs-rail i:nth-child(3){background:#6f6b7a}
+.ifs-rail i:nth-child(4){background:#2b2833}
+
+/* ---- images ----
+   Chaque emplacement a un RATIO FIXE. Sans ratio, la page saute au moment
+   ou l'image arrive : le texte a deja ete lu a la mauvaise place. Le
+   placeholder porte le nom du fichier attendu, pour qu'on sache quoi
+   deposer sans rouvrir le code. */
+.ifs-fig{margin:0;border-radius:18px;overflow:hidden;background:var(--soft2);
+  border:1px solid var(--line)}
+.ifs-fig .box{position:relative;width:100%;aspect-ratio:var(--r,3/2);
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 120% at 30% 20%,#f6f5f9 0%,#e9e7ef 55%,#dcd9e4 100%)}
+.ifs-fig img{width:100%;height:100%;object-fit:cover;display:block}
+.ifs-fig .ph{text-align:center;padding:22px;max-width:88%}
+.ifs-fig .ph b{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#6f6b7a;margin-bottom:6px}
+.ifs-fig .ph span{font-size:13px;color:#8b8698;line-height:1.5}
+.ifs-fig figcaption{font-size:12.5px;color:var(--mut);padding:11px 16px;
+  border-top:1px solid var(--line);background:#fff}
+.ifs-s.ink .ifs-fig{border-color:rgba(255,255,255,.16)}
+.ifs-s.ink .ifs-fig figcaption{background:transparent;color:#a5a1b0;
+  border-top-color:rgba(255,255,255,.16)}
+
+/* ---- bloc texte + image, alterne ---- */
+.ifs-media{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.ifs-media.rev .txt{order:2}
+.ifs-media h2{margin-bottom:14px}
+.ifs-media ul{margin:14px 0 0;padding:0}
+.ifs-media li{list-style:none;padding:10px 0 10px 26px;position:relative;
+  border-top:1px solid var(--line);font-size:15px}
+.ifs-media li:first-child{border-top:0}
+.ifs-media li::before{content:"";position:absolute;left:2px;top:19px;width:9px;height:9px;
+  border-radius:50%;background:var(--acc)}
+.ifs-s.ink .ifs-media li{border-top-color:rgba(255,255,255,.16);color:#d6d3de}
+.ifs-s.ink .ifs-media li::before{background:#fff}
+
+/* ---- bande de chiffres ---- */
+.ifs-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px}
+.ifs-nums div{border-left:2px solid var(--acc);padding:2px 0 2px 16px}
+.ifs-nums b{display:block;font-size:31px;font-weight:700;letter-spacing:-1px;line-height:1.1}
+.ifs-nums span{font-size:13.5px;color:var(--mut);line-height:1.4;display:block;margin-top:4px}
+.ifs-s.ink .ifs-nums div{border-left-color:#fff}
+.ifs-s.ink .ifs-nums span{color:#a5a1b0}
+
+@media(max-width:980px){
+  .ifs-media{grid-template-columns:1fr;gap:26px}
+  .ifs-media.rev .txt{order:0}
+  .ifs-nums{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .ifs-nums{grid-template-columns:1fr}
+}
 </style>
 <div class="ifs"><div class="ifs-w"><div class="ifs-brand"><span class="ifs-sphere"></span><span class="ifs-word">Influ&uuml;s<i>.</i></span><span class="ifs-tag">Press&nbsp;Service</span></div></div>
 <section class="ifs-hero"><div class="ifs-w"><div class="ifs-hero-g">
@@ -198,6 +298,11 @@
   </aside>
 </div></div></section>
 
+<div class="ifs-rail"><i></i><i></i><i></i><i></i></div>
+<section class="ifs-s"><div class="ifs-w">
+  <div class="ifs-media"><div class="txt"><p class="ifs-eb">Why it works</p><h2>Being written about is not the same as advertising.</h2><p class="ifs-sub">An advert interrupts. An article is looked up. The two are bought differently and they do not age the same way.</p><ul><li>It is found by someone already searching for you</li><li>It keeps working long after the campaign budget stops</li><li>It is quotable &mdash; on your site, in a deck, in a pitch</li><li>It carries the outlet&rsquo;s credibility, not yours</li></ul></div><figure class="ifs-fig"><div class="box" style="--r:3/2"><img src="img/press-hero.jpg" alt="Press Service &mdash; hero" loading="lazy" class="ifs-ph" data-nom="Press Service &mdash; hero" data-ratio="3:2"></div><figcaption>Emplacement image &mdash; deposer img/press-hero.jpg</figcaption></figure></div>
+</div></section>
+
 <section class="ifs-s alt"><div class="ifs-w">
   <p class="ifs-eb">What you are buying</p>
   <h2>Three formats. They are not interchangeable.</h2>
@@ -205,6 +310,7 @@
     as one thing. It is three, and the right one depends on whether you want a
     headline, a durable asset, or a name-drop.</p>
   <div class="ifs-g3"><article class="ifs-card"><p class="k">87 in the catalogue</p><h3>Press Release</h3><p>Your announcement, rewritten as news and published on the outlet.</p><ul><li>You give us the announcement and the angle</li><li>We write it in the publication&rsquo;s own register</li><li>It goes out under the outlet&rsquo;s byline</li><li>You get the live URL</li></ul><div class="foot">Best for: Launches, funding rounds, product news, milestones.<br><b>$95 – $1,500</b></div></article><article class="ifs-card"><p class="k">71 in the catalogue</p><h3>Guest Post</h3><p>A full article published under your name, on the publication.</p><ul><li>A subject you actually have something to say about</li><li>We write it, or you supply the draft</li><li>Published with your byline and your bio</li><li>Usually the strongest link you can buy</li></ul><div class="foot">Best for: Authority, SEO, a page that keeps working for years.<br><b>$120 – $995</b></div></article><article class="ifs-card"><p class="k">1 in the catalogue</p><h3>Brand Mention</h3><p>Your brand cited inside an article the outlet is already writing.</p><ul><li>No article to produce on your side</li><li>A contextual citation, not an advertorial</li><li>The cheapest way onto a high-authority domain</li><li>Shortest turnaround of the three</li></ul><div class="foot">Best for: Credibility on a name your prospects already read.<br><b>$995</b></div></article></div>
+  <div style="margin-top:34px"><figure class="ifs-fig"><div class="box" style="--r:4/3"><img src="img/press-formats.jpg" alt="Trois formats" loading="lazy" class="ifs-ph" data-nom="Trois formats" data-ratio="4:3"></div><figcaption>Emplacement image &mdash; deposer img/press-formats.jpg</figcaption></figure></div>
 </div></section>
 
 <section class="ifs-s"><div class="ifs-w">
@@ -212,9 +318,19 @@
   <h2>From brief to live URL.</h2>
   <p class="ifs-sub">Five steps. You are only asked for two of them.</p>
   <ol class="ifs-steps"><li><h3>Pick your placements</h3><p>Filter the full catalogue by outlet, category, minimum DA or price, and put everything in one basket.</p></li><li><h3>Send the brief</h3><p>One paragraph: what you are announcing, the angle, the links you want carried.</p></li><li><h3>We produce</h3><p>We write to each outlet&rsquo;s house style, or we edit the draft you already have.</p></li><li><h3>You approve</h3><p>You read it before it leaves. Nothing is submitted on your behalf without your sign-off.</p></li><li><h3>Publication &amp; report</h3><p>You get the live URL for every placement, in one list.</p></li></ol>
+  <div style="margin-top:44px"><div class="ifs-media rev"><div class="txt"><p class="ifs-eb">The editorial part</p><h2>Written in the publication&rsquo;s register, not yours.</h2><p class="ifs-sub">The reason a placement reads as news and not as a press kit is that somebody rewrites it for that outlet. That step is the work.</p><ul><li>The angle comes from you, the wording from us</li><li>You approve before it goes out</li><li>You receive the live URL, not a screenshot</li></ul></div><figure class="ifs-fig"><div class="box" style="--r:3/2"><img src="img/press-work.jpg" alt="Le travail editorial" loading="lazy" class="ifs-ph" data-nom="Le travail editorial" data-ratio="3:2"></div><figcaption>Emplacement image &mdash; deposer img/press-work.jpg</figcaption></figure></div></div>
 </div></section>
 
-<section class="ifs-s alt"><div class="ifs-w">
+<div class="ifs-rail"><i></i><i></i><i></i><i></i></div>
+<section class="ifs-s tint"><div class="ifs-w">
+  <p class="ifs-eb">Who it is for</p>
+  <h2>Four situations where a placement earns its price.</h2>
+  <p class="ifs-sub">Press coverage is not a goal. It is a means, and the means
+    only works when there is something to say.</p>
+  <div class="ifs-g2"><div class="ifs-card"><p class="k">Raising a round</p><p>Investors search the name before the first call. A thin first page of results is an answer in itself.</p><div class="foot"><b>Announcement, milestone, founder profile.</b></div></div><div class="ifs-card"><p class="k">Selling online</p><p>A citation on a publication your buyer already reads does what an ad cannot: it arrives without asking for attention.</p><div class="foot"><b>Product news, category explainer, gift guide.</b></div></div><div class="ifs-card"><p class="k">Selling to businesses</p><p>A long-form article under your byline is read by people who are evaluating you, months after it is published.</p><div class="foot"><b>Guest post on the specialised press.</b></div></div><div class="ifs-card"><p class="k">Regulated professions</p><p>Where advertising is restricted, being written about is often the only channel left.</p><div class="foot"><b>Expert commentary, contributed analysis.</b></div></div></div>
+</div></section>
+
+<section class="ifs-s"><div class="ifs-w">
   <p class="ifs-eb">In the catalogue</p>
   <h2>126 publications, ordered like a shop.</h2>
   <p class="ifs-sub">A selection of what is listed right now. The full list is
@@ -224,6 +340,17 @@
     <a class="ifs-btn" href="https://influus.com/bulk-order/">See all 159 placements</a>
   </div>
 </div></section>
+
+<div class="ifs-rail"><i></i><i></i><i></i><i></i></div>
+<section class="ifs-s ink"><div class="ifs-w">
+  <p class="ifs-eb">How a publication is chosen</p>
+  <h2>Three questions, in this order.</h2>
+  <p class="ifs-sub">Buying the highest number on the list is the most common
+    mistake, and the most expensive one.</p>
+  <div class="ifs-g3"><div class="ifs-card"><p class="k">01</p><h3>Who reads it, not who links to it</h3><p>A publication with the right readership and a modest score beats a high-scoring site nobody in your market opens.</p></div><div class="ifs-card"><p class="k">02</p><h3>Does the link survive</h3><p>A placement is worth what remains of it in a year. Do-follow, a permanent URL, and an outlet that keeps its archive.</p></div><div class="ifs-card"><p class="k">03</p><h3>Does the subject fit</h3><p>An article about your field on a site about something else reads as paid, to a reader and to a search engine alike.</p></div></div>
+  <p class="ifs-sub" style="margin:30px 0 0">Domain Authority is a third-party score, not ours. 41 of the 159 listings state one; the rest do not, and a listing without a score is not a worse listing. That is why the catalogue filter on minimum DA only ever narrows to the ones that publish it.</p>
+</div></section>
+<div class="ifs-rail"><i></i><i></i><i></i><i></i></div>
 
 <section class="ifs-s"><div class="ifs-w">
   <p class="ifs-eb">Straight answers</p>
@@ -246,4 +373,28 @@
   prices from $95 to $1,500 (median $350), 52 listings
   flagged Do-Follow. Domain Authority is a third-party metric and is shown
   only where the listing states it.</p></div>
-</div>
+<script>
+(function(){
+  function pose(img){
+    var b = img.parentNode;
+    if (!b || b.dataset.pose) return;
+    b.dataset.pose = '1';
+    var d = document.createElement('div');
+    d.className = 'ph';
+    d.innerHTML = '<b></b><span></span>';
+    d.querySelector('b').textContent = img.dataset.nom || '';
+    d.querySelector('span').textContent =
+      (img.getAttribute('src') || '') + '  ·  ' + (img.dataset.ratio || '');
+    b.replaceChild(d, img);
+  }
+  var l = document.querySelectorAll('img.ifs-ph');
+  for (var i = 0; i < l.length; i++){
+    var im = l[i];
+    /* complete && naturalWidth === 0 : l'image a DEJA echoue avant que le
+       script tourne. Sans ce test, seules les images qui echouent apres le
+       chargement du script seraient remplacees. */
+    if (im.complete && im.naturalWidth === 0) pose(im);
+    else im.addEventListener('error', (function(x){ return function(){ pose(x); }; })(im));
+  }
+})();
+</script></div>
